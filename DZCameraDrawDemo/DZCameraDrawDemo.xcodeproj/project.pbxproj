@@ -1,0 +1,364 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		836074F61DC1A26E006E29B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 836074F51DC1A26E006E29B6 /* main.m */; };
+		836074F91DC1A26E006E29B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 836074F81DC1A26E006E29B6 /* AppDelegate.m */; };
+		836074FC1DC1A26E006E29B6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836074FB1DC1A26E006E29B6 /* ViewController.m */; };
+		836074FF1DC1A26E006E29B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 836074FD1DC1A26E006E29B6 /* Main.storyboard */; };
+		836075011DC1A26E006E29B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836075001DC1A26E006E29B6 /* Assets.xcassets */; };
+		836075041DC1A26E006E29B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 836075021DC1A26E006E29B6 /* LaunchScreen.storyboard */; };
+		8360751B1DC1A2C6006E29B6 /* BHBDrawBoarderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8360750E1DC1A2C6006E29B6 /* BHBDrawBoarderView.m */; };
+		8360751C1DC1A2C6006E29B6 /* BHBMyDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 836075101DC1A2C6006E29B6 /* BHBMyDrawer.m */; };
+		8360751D1DC1A2C6006E29B6 /* BHBPaintPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 836075121DC1A2C6006E29B6 /* BHBPaintPath.m */; };
+		8360751E1DC1A2C6006E29B6 /* BHBScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 836075141DC1A2C6006E29B6 /* BHBScrollView.m */; };
+		8360751F1DC1A2C6006E29B6 /* DZCustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836075161DC1A2C6006E29B6 /* DZCustomImagePickerController.m */; };
+		836075201DC1A2C6006E29B6 /* DGDrawImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836075181DC1A2C6006E29B6 /* DGDrawImageViewController.m */; };
+		836075211DC1A2C6006E29B6 /* DZCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8360751A1DC1A2C6006E29B6 /* DZCameraViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		836074F11DC1A26E006E29B6 /* DZCameraDrawDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZCameraDrawDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		836074F51DC1A26E006E29B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		836074F71DC1A26E006E29B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		836074F81DC1A26E006E29B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		836074FA1DC1A26E006E29B6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		836074FB1DC1A26E006E29B6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		836074FE1DC1A26E006E29B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		836075001DC1A26E006E29B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		836075031DC1A26E006E29B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		836075051DC1A26E006E29B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8360750D1DC1A2C6006E29B6 /* BHBDrawBoarderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBDrawBoarderView.h; sourceTree = "<group>"; };
+		8360750E1DC1A2C6006E29B6 /* BHBDrawBoarderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBDrawBoarderView.m; sourceTree = "<group>"; };
+		8360750F1DC1A2C6006E29B6 /* BHBMyDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBMyDrawer.h; sourceTree = "<group>"; };
+		836075101DC1A2C6006E29B6 /* BHBMyDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBMyDrawer.m; sourceTree = "<group>"; };
+		836075111DC1A2C6006E29B6 /* BHBPaintPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBPaintPath.h; sourceTree = "<group>"; };
+		836075121DC1A2C6006E29B6 /* BHBPaintPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBPaintPath.m; sourceTree = "<group>"; };
+		836075131DC1A2C6006E29B6 /* BHBScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHBScrollView.h; sourceTree = "<group>"; };
+		836075141DC1A2C6006E29B6 /* BHBScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBScrollView.m; sourceTree = "<group>"; };
+		836075151DC1A2C6006E29B6 /* DZCustomImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZCustomImagePickerController.h; sourceTree = "<group>"; };
+		836075161DC1A2C6006E29B6 /* DZCustomImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZCustomImagePickerController.m; sourceTree = "<group>"; };
+		836075171DC1A2C6006E29B6 /* DGDrawImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGDrawImageViewController.h; sourceTree = "<group>"; };
+		836075181DC1A2C6006E29B6 /* DGDrawImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGDrawImageViewController.m; sourceTree = "<group>"; };
+		836075191DC1A2C6006E29B6 /* DZCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZCameraViewController.h; sourceTree = "<group>"; };
+		8360751A1DC1A2C6006E29B6 /* DZCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZCameraViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		836074EE1DC1A26E006E29B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		836074E81DC1A26E006E29B6 = {
+			isa = PBXGroup;
+			children = (
+				836074F31DC1A26E006E29B6 /* DZCameraDrawDemo */,
+				836074F21DC1A26E006E29B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		836074F21DC1A26E006E29B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				836074F11DC1A26E006E29B6 /* DZCameraDrawDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		836074F31DC1A26E006E29B6 /* DZCameraDrawDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8360750B1DC1A2C6006E29B6 /* DZCameraDraw */,
+				836074F71DC1A26E006E29B6 /* AppDelegate.h */,
+				836074F81DC1A26E006E29B6 /* AppDelegate.m */,
+				836074FA1DC1A26E006E29B6 /* ViewController.h */,
+				836074FB1DC1A26E006E29B6 /* ViewController.m */,
+				836074FD1DC1A26E006E29B6 /* Main.storyboard */,
+				836075001DC1A26E006E29B6 /* Assets.xcassets */,
+				836075021DC1A26E006E29B6 /* LaunchScreen.storyboard */,
+				836075051DC1A26E006E29B6 /* Info.plist */,
+				836074F41DC1A26E006E29B6 /* Supporting Files */,
+			);
+			path = DZCameraDrawDemo;
+			sourceTree = "<group>";
+		};
+		836074F41DC1A26E006E29B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				836074F51DC1A26E006E29B6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8360750B1DC1A2C6006E29B6 /* DZCameraDraw */ = {
+			isa = PBXGroup;
+			children = (
+				8360750C1DC1A2C6006E29B6 /* BHBDrawBoarder */,
+				836075151DC1A2C6006E29B6 /* DZCustomImagePickerController.h */,
+				836075161DC1A2C6006E29B6 /* DZCustomImagePickerController.m */,
+				836075171DC1A2C6006E29B6 /* DGDrawImageViewController.h */,
+				836075181DC1A2C6006E29B6 /* DGDrawImageViewController.m */,
+				836075191DC1A2C6006E29B6 /* DZCameraViewController.h */,
+				8360751A1DC1A2C6006E29B6 /* DZCameraViewController.m */,
+			);
+			path = DZCameraDraw;
+			sourceTree = "<group>";
+		};
+		8360750C1DC1A2C6006E29B6 /* BHBDrawBoarder */ = {
+			isa = PBXGroup;
+			children = (
+				8360750D1DC1A2C6006E29B6 /* BHBDrawBoarderView.h */,
+				8360750E1DC1A2C6006E29B6 /* BHBDrawBoarderView.m */,
+				8360750F1DC1A2C6006E29B6 /* BHBMyDrawer.h */,
+				836075101DC1A2C6006E29B6 /* BHBMyDrawer.m */,
+				836075111DC1A2C6006E29B6 /* BHBPaintPath.h */,
+				836075121DC1A2C6006E29B6 /* BHBPaintPath.m */,
+				836075131DC1A2C6006E29B6 /* BHBScrollView.h */,
+				836075141DC1A2C6006E29B6 /* BHBScrollView.m */,
+			);
+			path = BHBDrawBoarder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		836074F01DC1A26E006E29B6 /* DZCameraDrawDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 836075081DC1A26E006E29B6 /* Build configuration list for PBXNativeTarget "DZCameraDrawDemo" */;
+			buildPhases = (
+				836074ED1DC1A26E006E29B6 /* Sources */,
+				836074EE1DC1A26E006E29B6 /* Frameworks */,
+				836074EF1DC1A26E006E29B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DZCameraDrawDemo;
+			productName = DZCameraDrawDemo;
+			productReference = 836074F11DC1A26E006E29B6 /* DZCameraDrawDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		836074E91DC1A26E006E29B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Chris;
+				TargetAttributes = {
+					836074F01DC1A26E006E29B6 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 836074EC1DC1A26E006E29B6 /* Build configuration list for PBXProject "DZCameraDrawDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 836074E81DC1A26E006E29B6;
+			productRefGroup = 836074F21DC1A26E006E29B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				836074F01DC1A26E006E29B6 /* DZCameraDrawDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		836074EF1DC1A26E006E29B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				836075041DC1A26E006E29B6 /* LaunchScreen.storyboard in Resources */,
+				836075011DC1A26E006E29B6 /* Assets.xcassets in Resources */,
+				836074FF1DC1A26E006E29B6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		836074ED1DC1A26E006E29B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8360751F1DC1A2C6006E29B6 /* DZCustomImagePickerController.m in Sources */,
+				836074FC1DC1A26E006E29B6 /* ViewController.m in Sources */,
+				8360751E1DC1A2C6006E29B6 /* BHBScrollView.m in Sources */,
+				836075201DC1A2C6006E29B6 /* DGDrawImageViewController.m in Sources */,
+				836074F91DC1A26E006E29B6 /* AppDelegate.m in Sources */,
+				836074F61DC1A26E006E29B6 /* main.m in Sources */,
+				8360751B1DC1A2C6006E29B6 /* BHBDrawBoarderView.m in Sources */,
+				8360751D1DC1A2C6006E29B6 /* BHBPaintPath.m in Sources */,
+				8360751C1DC1A2C6006E29B6 /* BHBMyDrawer.m in Sources */,
+				836075211DC1A2C6006E29B6 /* DZCameraViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		836074FD1DC1A26E006E29B6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				836074FE1DC1A26E006E29B6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		836075021DC1A26E006E29B6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				836075031DC1A26E006E29B6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		836075061DC1A26E006E29B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		836075071DC1A26E006E29B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		836075091DC1A26E006E29B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DZCameraDrawDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chris.DZCameraDrawDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8360750A1DC1A26E006E29B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DZCameraDrawDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chris.DZCameraDrawDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		836074EC1DC1A26E006E29B6 /* Build configuration list for PBXProject "DZCameraDrawDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				836075061DC1A26E006E29B6 /* Debug */,
+				836075071DC1A26E006E29B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		836075081DC1A26E006E29B6 /* Build configuration list for PBXNativeTarget "DZCameraDrawDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				836075091DC1A26E006E29B6 /* Debug */,
+				8360750A1DC1A26E006E29B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 836074E91DC1A26E006E29B6 /* Project object */;
+}
