@@ -7,7 +7,7 @@
 //
 
 #import "DZCustomImagePickerController.h"
-#import<QuartzCore/QuartzCore.h>
+#import <QuartzCore/QuartzCore.h>
 @interface DZCustomImagePickerController ()
 
 @end
@@ -30,15 +30,8 @@
     [super viewDidLoad];
     
     self.delegate = self;
-	// Do any additional setup after loading the view.
+    
 }
-
-//- (void)viewDidDisappear:(BOOL)animated{
-//    [super viewDidDisappear:animated];
-//    
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-//    
-//}
 
 
 //切换前、后置摄像头
@@ -79,9 +72,8 @@
         [self setShowsCameraControls:NO];
         
         //overlyView
-        UIView *overlyView = [[UIView alloc] initWithFrame:CGRectMake(0,  KHeight-75-20-20, KWidth, 75+20+20)];//CGRectMake(0,  kHeight-75-20-50, kWidth, 75+20+50)
+        UIView *overlyView = [[UIView alloc] initWithFrame:CGRectMake(0,  KHeight-75-20-20, KWidth, 75+20+20)];
         
-        //[overlyView setBackgroundColor:DGBjGrayColor];
         overlyView.backgroundColor = [UIColor clearColor];
         
         //拍照
@@ -91,12 +83,13 @@
         [cemareBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [cemareBtn setBackgroundImage:[UIImage imageNamed:@"take_phote_blue"] forState:UIControlStateNormal];
         [overlyView addSubview:cemareBtn];
-//        [cemareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.centerX.mas_equalTo(overlyView);
-//            make.bottom.mas_equalTo(overlyView).offset(-20);
-//            make.width.height.mas_equalTo(75);
-//        }];
         [cemareBtn addTarget:self action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
+        cemareBtn.translatesAutoresizingMaskIntoConstraints = NO;
+        NSLayoutConstraint *cemareBtnCenterx = [NSLayoutConstraint constraintWithItem:cemareBtn attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:overlyView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+        NSLayoutConstraint *cemareBtnBottom = [NSLayoutConstraint constraintWithItem:cemareBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:overlyView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-20];
+        NSLayoutConstraint *cemareBtnWidth = [NSLayoutConstraint constraintWithItem:cemareBtn attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:75];
+        NSLayoutConstraint *cemareBtnHeight = [NSLayoutConstraint constraintWithItem:cemareBtn attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:75];
+        [overlyView addConstraints:@[cemareBtnCenterx,cemareBtnBottom,cemareBtnWidth,cemareBtnHeight]];
         
         //取消
         UIButton *cancelBtn = [[UIButton alloc] init];
@@ -105,12 +98,11 @@
         [cancelBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [cancelBtn setBackgroundImage:[UIImage imageNamed:@"take_phote_green"] forState:UIControlStateNormal];
         [overlyView addSubview:cancelBtn];
-//        [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.mas_equalTo(overlyView).offset(20);
-//            make.centerY.mas_equalTo(cemareBtn);
-//            //make.width.height.mas_equalTo(50);
-//        }];
         [cancelBtn addTarget:self action:@selector(closeView) forControlEvents:UIControlEventTouchUpInside];
+        cancelBtn.translatesAutoresizingMaskIntoConstraints = NO;
+        NSLayoutConstraint *cancelBtnLeft = [NSLayoutConstraint constraintWithItem:cancelBtn attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:overlyView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:20];
+        NSLayoutConstraint *cancelBtnCentery = [NSLayoutConstraint constraintWithItem:cancelBtn attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:cemareBtn attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+        [overlyView addConstraints:@[cancelBtnLeft,cancelBtnCentery]];
         
         //相册
         UIButton *albumBtn = [[UIButton alloc] init];
@@ -120,12 +112,11 @@
         [albumBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [albumBtn setBackgroundImage:[UIImage imageNamed:@"take_phote_orange"] forState:UIControlStateNormal];
         [overlyView addSubview:albumBtn];
-//        [albumBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.right.mas_equalTo(overlyView).offset(-20);
-//            make.centerY.mas_equalTo(cemareBtn);
-//            // make.width.height.mas_equalTo(50);
-//        }];
         [albumBtn addTarget:self action:@selector(showPhoto) forControlEvents:UIControlEventTouchUpInside];
+        albumBtn.translatesAutoresizingMaskIntoConstraints = NO;
+        NSLayoutConstraint *albumBtnRight = [NSLayoutConstraint constraintWithItem:albumBtn attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:overlyView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-20];
+        NSLayoutConstraint *albumBtnCentery = [NSLayoutConstraint constraintWithItem:albumBtn attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:cemareBtn attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+        [overlyView addConstraints:@[albumBtnRight,albumBtnCentery]];
         
         self.cameraOverlayView = overlyView;
         
@@ -134,20 +125,12 @@
 
 - (void)showPhoto
 {
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     [self setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
 - (void)closeView{
     
-    if (self.navigationController) {
-        
-        [self.navigationController popViewControllerAnimated:NO];
-    }
-    
-    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-    }];
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)takePicture{
@@ -161,7 +144,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self dismissViewControllerAnimated:NO completion:nil];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     if ([customDelegate respondsToSelector:@selector(cameraPhoto:)]) {
         [customDelegate cameraPhoto:image];
     }
@@ -171,12 +153,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self setSourceType:UIImagePickerControllerSourceTypeCamera];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

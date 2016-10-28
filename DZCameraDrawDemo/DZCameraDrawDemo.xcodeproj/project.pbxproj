@@ -18,7 +18,6 @@
 		8360751D1DC1A2C6006E29B6 /* BHBPaintPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 836075121DC1A2C6006E29B6 /* BHBPaintPath.m */; };
 		8360751E1DC1A2C6006E29B6 /* BHBScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 836075141DC1A2C6006E29B6 /* BHBScrollView.m */; };
 		8360751F1DC1A2C6006E29B6 /* DZCustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836075161DC1A2C6006E29B6 /* DZCustomImagePickerController.m */; };
-		836075201DC1A2C6006E29B6 /* DGDrawImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836075181DC1A2C6006E29B6 /* DGDrawImageViewController.m */; };
 		836075211DC1A2C6006E29B6 /* DZCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8360751A1DC1A2C6006E29B6 /* DZCameraViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -43,8 +42,6 @@
 		836075141DC1A2C6006E29B6 /* BHBScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHBScrollView.m; sourceTree = "<group>"; };
 		836075151DC1A2C6006E29B6 /* DZCustomImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZCustomImagePickerController.h; sourceTree = "<group>"; };
 		836075161DC1A2C6006E29B6 /* DZCustomImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZCustomImagePickerController.m; sourceTree = "<group>"; };
-		836075171DC1A2C6006E29B6 /* DGDrawImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGDrawImageViewController.h; sourceTree = "<group>"; };
-		836075181DC1A2C6006E29B6 /* DGDrawImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGDrawImageViewController.m; sourceTree = "<group>"; };
 		836075191DC1A2C6006E29B6 /* DZCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZCameraViewController.h; sourceTree = "<group>"; };
 		8360751A1DC1A2C6006E29B6 /* DZCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZCameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,8 +104,6 @@
 				8360750C1DC1A2C6006E29B6 /* BHBDrawBoarder */,
 				836075151DC1A2C6006E29B6 /* DZCustomImagePickerController.h */,
 				836075161DC1A2C6006E29B6 /* DZCustomImagePickerController.m */,
-				836075171DC1A2C6006E29B6 /* DGDrawImageViewController.h */,
-				836075181DC1A2C6006E29B6 /* DGDrawImageViewController.m */,
 				836075191DC1A2C6006E29B6 /* DZCameraViewController.h */,
 				8360751A1DC1A2C6006E29B6 /* DZCameraViewController.m */,
 			);
@@ -203,7 +198,6 @@
 				8360751F1DC1A2C6006E29B6 /* DZCustomImagePickerController.m in Sources */,
 				836074FC1DC1A26E006E29B6 /* ViewController.m in Sources */,
 				8360751E1DC1A2C6006E29B6 /* BHBScrollView.m in Sources */,
-				836075201DC1A2C6006E29B6 /* DGDrawImageViewController.m in Sources */,
 				836074F91DC1A26E006E29B6 /* AppDelegate.m in Sources */,
 				836074F61DC1A26E006E29B6 /* main.m in Sources */,
 				8360751B1DC1A2C6006E29B6 /* BHBDrawBoarderView.m in Sources */,
@@ -320,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DZCameraDrawDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chris.DZCameraDrawDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -331,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DZCameraDrawDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chris.DZCameraDrawDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

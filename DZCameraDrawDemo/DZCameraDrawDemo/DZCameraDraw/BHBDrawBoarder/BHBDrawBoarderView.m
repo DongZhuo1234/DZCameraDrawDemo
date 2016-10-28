@@ -285,7 +285,7 @@
     _boardView.contentSize = imageSize;
 //    self.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
 //    self.layer.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-    self.myDrawer.width = 5;
+//    self.myDrawer.width = 5;
 }
 
 ///获取绘制的图片

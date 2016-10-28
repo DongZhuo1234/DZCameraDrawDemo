@@ -19,7 +19,7 @@
 
 @property (nonatomic,unsafe_unretained)id<CustomImagePickerControllerDelegate>customDelegate;
 
-@property (nonatomic, strong) UINavigationController *navigationController;///图片轮播器进来
+//@property (nonatomic, strong) UINavigationController *navigationController;///图片轮播器进来
 
 @end
 

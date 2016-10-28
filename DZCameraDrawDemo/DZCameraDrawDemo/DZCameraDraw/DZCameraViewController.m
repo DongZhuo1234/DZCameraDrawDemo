@@ -9,19 +9,23 @@
 #import "DZCameraViewController.h"
 #import "BHBDrawBoarderView.h"
 #import "BHBMyDrawer.h"
+#import "DZCustomImagePickerController.h"
 
-@interface DZCameraViewController ()
+@interface DZCameraViewController () <UINavigationControllerDelegate,CustomImagePickerControllerDelegate>
 
 ///取消
 @property (nonatomic, strong) UIButton *cancelBtn;
 ///拍照
-@property (nonatomic, strong) UIButton *cemareBtn;
+@property (nonatomic, strong) UIButton *cameraBtn;
 ///相册
 @property (nonatomic, strong) UIButton *albumBtn;
 ///tag提示
 @property (nonatomic, strong) UIButton *tagTipBtn;
 ///画板
 @property (nonatomic,strong) BHBDrawBoarderView * drawBoarderView;
+
+///图片
+@property (nonatomic, strong) UIImage *photoImage;
 
 @end
 
@@ -32,15 +36,32 @@
     
     self.view.backgroundColor = [UIColor blackColor];
     
-    [self jumpCustomImagePicker];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self jumpCustomImagePickerSourceType:UIImagePickerControllerSourceTypeCamera];
+    });
+    
     
     [self creatUI];
     
 }
 
-- (void)jumpCustomImagePicker{
+- (void)jumpCustomImagePickerSourceType:(UIImagePickerControllerSourceType)sourceType{
     
-    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        DZCustomImagePickerController *imagepickerCtrl = [[DZCustomImagePickerController alloc] init];
+
+        imagepickerCtrl.sourceType = sourceType;
+        imagepickerCtrl.customDelegate = self;
+        
+        [self presentViewController:imagepickerCtrl animated:NO completion:NULL];
+        
+    }else{
+        
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:@"你没有摄像头" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alter show];
+    }
 }
 
 - (void)creatUI{
@@ -49,18 +70,18 @@
     [self.view addSubview:self.drawBoarderView];
     
     //拍照
-    self.cemareBtn = [[UIButton alloc] init];
-    [self.cemareBtn setTitle:@"拍照" forState:UIControlStateNormal];
-    self.cemareBtn.titleLabel.font = [UIFont systemFontOfSize:18];
-    [self.cemareBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.cemareBtn setBackgroundImage:[UIImage imageNamed:@"take_phote_blue"] forState:UIControlStateNormal];
-    [self.view addSubview:self.cemareBtn];
-    [self.cemareBtn addTarget:self action:@selector(cemareBtnDidTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
-    self.cemareBtn.translatesAutoresizingMaskIntoConstraints = NO;
-    NSLayoutConstraint *cemareBtnCenterx = [NSLayoutConstraint constraintWithItem:self.cemareBtn attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
-    NSLayoutConstraint *cemareBtnBottom = [NSLayoutConstraint constraintWithItem:self.cemareBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-20];
-    NSLayoutConstraint *cemareBtnWidth = [NSLayoutConstraint constraintWithItem:self.cemareBtn attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:75];
-    NSLayoutConstraint *cemareBtnHeight = [NSLayoutConstraint constraintWithItem:self.cemareBtn attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:75];
+    self.cameraBtn = [[UIButton alloc] init];
+    [self.cameraBtn setTitle:@"拍照" forState:UIControlStateNormal];
+    self.cameraBtn.titleLabel.font = [UIFont systemFontOfSize:18];
+    [self.cameraBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.cameraBtn setBackgroundImage:[UIImage imageNamed:@"take_phote_blue"] forState:UIControlStateNormal];
+    [self.view addSubview:self.cameraBtn];
+    [self.cameraBtn addTarget:self action:@selector(cemareBtnDidTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    self.cameraBtn.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *cemareBtnCenterx = [NSLayoutConstraint constraintWithItem:self.cameraBtn attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+    NSLayoutConstraint *cemareBtnBottom = [NSLayoutConstraint constraintWithItem:self.cameraBtn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-20];
+    NSLayoutConstraint *cemareBtnWidth = [NSLayoutConstraint constraintWithItem:self.cameraBtn attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:75];
+    NSLayoutConstraint *cemareBtnHeight = [NSLayoutConstraint constraintWithItem:self.cameraBtn attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:75];
     [self.view addConstraints:@[cemareBtnCenterx,cemareBtnBottom,cemareBtnWidth,cemareBtnHeight]];
     
     //取消
@@ -73,7 +94,7 @@
     [self.cancelBtn addTarget:self action:@selector(cancelBtnClink) forControlEvents:UIControlEventTouchUpInside];
     self.cancelBtn.translatesAutoresizingMaskIntoConstraints = NO;
     NSLayoutConstraint *cancelBtnLeft = [NSLayoutConstraint constraintWithItem:self.cancelBtn attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:20];
-    NSLayoutConstraint *cancelBtnCentery = [NSLayoutConstraint constraintWithItem:self.cancelBtn attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.cemareBtn attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+    NSLayoutConstraint *cancelBtnCentery = [NSLayoutConstraint constraintWithItem:self.cancelBtn attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.cameraBtn attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
     [self.view addConstraints:@[cancelBtnLeft,cancelBtnCentery]];
     
     //相册
@@ -87,7 +108,7 @@
     [self.albumBtn addTarget:self action:@selector(albumBtnClink:) forControlEvents:UIControlEventTouchUpInside];
     self.albumBtn.translatesAutoresizingMaskIntoConstraints = NO;
     NSLayoutConstraint *albumBtnRight = [NSLayoutConstraint constraintWithItem:self.albumBtn attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:-20];
-    NSLayoutConstraint *albumBtnCentery = [NSLayoutConstraint constraintWithItem:self.albumBtn attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.cemareBtn attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+    NSLayoutConstraint *albumBtnCentery = [NSLayoutConstraint constraintWithItem:self.albumBtn attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.cameraBtn attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
     [self.view addConstraints:@[albumBtnRight,albumBtnCentery]];
     
     //tag提示
@@ -95,7 +116,7 @@
     self.tagTipBtn.hidden = YES;
     self.tagTipBtn.userInteractionEnabled = NO;
     [self.tagTipBtn setBackgroundImage:[UIImage imageNamed:@"take_phote_tag"] forState:UIControlStateNormal];
-    [self.tagTipBtn setTitle:@"    想圈哪里圈哪里~    " forState:UIControlStateNormal];
+    [self.tagTipBtn setTitle:@"    随意画~    " forState:UIControlStateNormal];
     self.tagTipBtn.titleLabel.numberOfLines = 0;
     self.tagTipBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.tagTipBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -110,19 +131,90 @@
 #pragma mark - action
 - (void)cancelBtnClink{
     
+    if (self.drawBoarderView.myDrawer.lines.count > 0) {
+        [self.drawBoarderView.myDrawer clearScreen];
+        return;
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
 - (void)cemareBtnDidTouchUpInside:(UIButton *)btn{
     
-    
+    if ([btn.currentTitle isEqualToString:@"重新拍照"]) {
+        
+        if (self.drawBoarderView.myDrawer.lines.count > 0) {
+            [self.drawBoarderView.myDrawer clearScreen];
+        }
+        [btn setTitle:@"拍照" forState:UIControlStateNormal];
+        [self.albumBtn setTitle:@"相册" forState:UIControlStateNormal];
+        [self jumpCustomImagePickerSourceType:UIImagePickerControllerSourceTypeCamera];
+        return;
+    }
 }
 
 - (void)albumBtnClink:(UIButton *)btn{
     
+    if ([btn.currentTitle isEqualToString:@"完成"]) {
+        
+        if (self.completeImage) {
+            
+            UIImage *image = [self.drawBoarderView getDrawImage];
+            self.completeImage(image);
+            [self cancelCamera];
+        }
+        
+        return;
+    }
+    
+    [self jumpCustomImagePickerSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    
 }
 
+#pragma mark - CustomImagePickerControllerDelegate
+- (void)cameraPhoto:(UIImage *)image{
+    
+    self.photoImage = image;
+    self.drawBoarderView.hidden = NO;
+    [self.drawBoarderView setBjImage:image];
+    [self.cameraBtn setTitle:@"重新拍照" forState:UIControlStateNormal];
+    [self.albumBtn setTitle:@"完成" forState:UIControlStateNormal];
+    self.tagTipBtn.hidden = NO;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [UIView animateWithDuration:1.0 animations:^{
+            self.tagTipBtn.alpha = 0;
+        } completion:^(BOOL finished) {
+            self.tagTipBtn.hidden = YES;
+            self.tagTipBtn.alpha = 1;
+        }];
+    });
+    
+}
+
+- (void)cancelCamera{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - set,get
+- (BHBDrawBoarderView *)drawBoarderView{
+    
+    if (!_drawBoarderView) {
+        
+        _drawBoarderView = [[BHBDrawBoarderView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+        _drawBoarderView.hidden = YES;
+        if (self.lineColor) {
+            _drawBoarderView.myDrawer.lineColor = self.lineColor;
+        }
+        if (self.lineWidth > 0) {
+            _drawBoarderView.myDrawer.width = self.lineWidth;
+        }
+    }
+    return _drawBoarderView;
+}
 
 
 @end
