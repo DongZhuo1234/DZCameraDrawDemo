@@ -1,14 +1,13 @@
 //
-//  DZCustomImagePickerController.m
-//  DZCameraDrawDemo
+//  CustomImagePickerController.m
+//  ZBImagePickerController
 //
-//  Created by 董棁 on 16/10/30.
-//  Copyright © 2016年 Chris. All rights reserved.
+//  Created by Kevin Zhang on 13-9-5.
+//  Copyright (c) 2013年 zimbean. All rights reserved.
 //
 
 #import "DZCustomImagePickerController.h"
 #import <QuartzCore/QuartzCore.h>
-
 @interface DZCustomImagePickerController ()
 
 @end
@@ -34,6 +33,37 @@
     
 }
 
+
+//切换前、后置摄像头
+- (void)swapFrontAndBackCameras:(id)sender {
+    if (self.cameraDevice ==UIImagePickerControllerCameraDeviceRear ) {
+        self.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    }
+    else {
+        self.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+    }
+}
+
+#pragma mark /////////////
+- (UIView *)findView:(UIView *)aView withName:(NSString *)name{
+    Class cl = [aView class];
+    NSString *desc = [cl description];
+    
+    if ([name isEqualToString:desc]) {
+        return aView;
+    }
+    
+    for (int i = 0; i < [aView subviews].count; i++) {
+        UIView *subview = [aView.subviews objectAtIndex:i];
+        subview = [self findView:subview withName:name];
+        
+        if(subview){
+            return subview;
+        }
+    }
+    
+    return nil;
+}
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     
@@ -121,8 +151,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self setSourceType:UIImagePickerControllerSourceTypeCamera];
 }
 
 @end
-

@@ -77,56 +77,20 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if (frame.origin.y == 200) {
-    }else{
-        frame = CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height);
-    }
+    frame = CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height);
+    
     self = [super initWithFrame:frame];
     if (self) {
         
-        /*
-        //顶部工具条
-        UIView * toolV = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_SIZE.height-64, SCREEN_SIZE.width, 64)];
-        toolV.backgroundColor = [UIColor orangeColor];
-        [self addSubview:toolV];
-        _toolView = toolV;
-        
-        //顶部按钮
-        CGFloat btnW = toolV.bounds.size.width/4.0f;
-        CGFloat btnH =toolV.bounds.size.height-20;
-        
-        for (int i = 0; i<4; i++) {
-            UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.frame = CGRectMake(i*btnW, 10, btnW, btnH);
-            
-            UIImage * img = [UIImage imageNamed:self.buttonImgNames[i]];
-            UIImage * imgDis = [UIImage imageNamed:self.btnEnableImgNames[i]];
-            [btn setImage:img forState:UIControlStateNormal];
-            [btn setImage:img forState:UIControlStateSelected];
-            [btn setImage:imgDis forState:UIControlStateDisabled];
-            [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
-            btn.tag = i+100;
-            [_toolView addSubview:btn];
-            if (i > 0) [btn setEnabled:NO];
-        }
-        
-        self.delAllBtn = (UIButton *)[_toolView viewWithTag:101];
-        self.fwBtn = (UIButton *)[_toolView viewWithTag:102];
-        self.ntBtn = (UIButton *)[_toolView viewWithTag:103];
-         */
-        ///*
         [self.myDrawer addObserver:self forKeyPath:@"lines" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
         [self.myDrawer addObserver:self forKeyPath:@"canceledLines" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
-        //*/
+        
         //画板view
         CGRect boardFrame = CGRectZero;
-        if (frame.origin.y == 200) {
-            boardFrame = CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.width*0.5);
-        }else{
-            boardFrame = CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height);
-        }
+        
+        boardFrame = CGRectMake(0, 0, SCREEN_SIZE.width, SCREEN_SIZE.height);
+        
         BHBScrollView * boardV = [[BHBScrollView alloc] initWithFrame:boardFrame];
-        //BHBScrollView * boardV = [[BHBScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(toolV.frame), SCREEN_SIZE.width, SCREEN_SIZE.height - CGRectGetMaxY(toolV.frame))];
         
         ///背景图片
         UIImageView *imgView = [[UIImageView alloc] init];
@@ -135,26 +99,16 @@
         self.photoImage = imgView;
         
         boardV.layer.backgroundColor = [UIColor whiteColor].CGColor;
-        //boardV.layer.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.15].CGColor;
         [boardV setUserInteractionEnabled:YES];
         [boardV setScrollEnabled:YES];
         [boardV setMultipleTouchEnabled:YES];
-        if (frame.origin.y == 200) {
-            self.myDrawer.frame = self.bounds;
-        }else{
-        }
         [boardV addSubview:self.myDrawer];
         [boardV setContentSize:self.myDrawer.frame.size];
         [boardV setDelaysContentTouches:NO];
         [boardV setCanCancelContentTouches:NO];
-        //[self insertSubview:boardV belowSubview:_toolView];
         [self addSubview:boardV];
         
         _boardView = boardV;
-        
-        
-        
-        //[[UIApplication sharedApplication].keyWindow addSubview:self];
         
     }
     return self;
@@ -268,9 +222,6 @@
     
     _boardView.layer.backgroundColor = [UIColor blackColor].CGColor;
     
-//    imageSize.width = imageSize.width*0.7;
-//    imageSize.height = imageSize.height*0.7;
-    
     CGFloat imageScaleHeight = imageSize.height/imageSize.width;
     
     imageSize.width = SCREEN_SIZE.width;
@@ -278,14 +229,9 @@
     
     
     self.photoImage.image = image;
-    self.photoImage.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);//CGRectMake(0, (SCREEN_SIZE.height-imageSize.height)*0.5, imageSize.width, imageSize.height);
-//    self.photoImage.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-    self.myDrawer.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);//CGRectMake(0, (SCREEN_SIZE.height-imageSize.height)*0.5, imageSize.width, imageSize.height);
-//    self.myDrawer.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
+    self.photoImage.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
+    self.myDrawer.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
     _boardView.contentSize = imageSize;
-//    self.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-//    self.layer.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
-//    self.myDrawer.width = 5;
 }
 
 ///获取绘制的图片
@@ -305,11 +251,6 @@
     UIGraphicsBeginImageContext(size);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
-//    if (self.photoImage.image) {
-//        [self.layer addSublayer:self.photoImage.layer];
-//        [self.layer addSublayer:self.myDrawer.layer];
-//    }
     
     if (self.photoImage.image) {
         

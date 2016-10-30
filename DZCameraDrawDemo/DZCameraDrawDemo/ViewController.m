@@ -10,7 +10,6 @@
 #import "DZCameraViewController.h"
 
 #define KWidth [UIScreen mainScreen].bounds.size.width
-#define KHeight [UIScreen mainScreen].bounds.size.height
 
 @interface ViewController ()
 
@@ -33,17 +32,18 @@
 
 - (void)btnClink{
     
-    DZCameraViewController *cemaraVC = [[DZCameraViewController alloc] init];
+    DZCameraViewController *cameraVC = [[DZCameraViewController alloc] init];
+    cameraVC.lineColor = [UIColor redColor];///线条默认红色
+    cameraVC.lineWidth = 5;///线条默认宽3
     
-    cemaraVC.completeImage = ^(UIImage *image){
-        
+    cameraVC.completeImage = ^(UIImage *image){
         CGSize imageSize = image.size;
         CGFloat height = imageSize.height/imageSize.width*KWidth;
         self.imageView.frame = CGRectMake(0, 100, KWidth, height);
         self.imageView.image = image;
     };
     
-    [self presentViewController:cemaraVC animated:YES completion:nil];
+    [self presentViewController:cameraVC animated:YES completion:nil];
     
 }
 

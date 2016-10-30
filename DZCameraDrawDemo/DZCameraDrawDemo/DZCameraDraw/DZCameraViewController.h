@@ -15,7 +15,7 @@
 ///线条宽度,默认3
 @property (nonatomic, assign) CGFloat lineWidth;
 
-///完成图片
+///完成图片回调
 @property (nonatomic, copy) void(^completeImage)(UIImage *image);
 
 @end

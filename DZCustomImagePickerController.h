@@ -1,9 +1,9 @@
 //
-//  DZCustomImagePickerController.h
-//  DZCameraDrawDemo
+//  CustomImagePickerController.h
+//  ZBImagePickerController
 //
-//  Created by 董棁 on 16/10/30.
-//  Copyright © 2016年 Chris. All rights reserved.
+//  Created by Kevin Zhang on 13-9-5.
+//  Copyright (c) 2013年 zimbean. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -18,6 +18,8 @@
 }
 
 @property (nonatomic,unsafe_unretained)id<CustomImagePickerControllerDelegate>customDelegate;
+
+//@property (nonatomic, strong) UINavigationController *navigationController;///图片轮播器进来
 
 @end
 

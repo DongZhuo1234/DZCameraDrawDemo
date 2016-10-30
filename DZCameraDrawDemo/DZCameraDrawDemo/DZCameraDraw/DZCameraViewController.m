@@ -136,6 +136,20 @@
         return;
     }
     
+    if (self.photoImage) {
+        [self.drawBoarderView.myDrawer clearScreen];
+        self.photoImage = nil;
+        [self.drawBoarderView setBjImage:nil];
+        self.drawBoarderView.hidden = YES;
+        
+        [self.cameraBtn setTitle:@"拍照" forState:UIControlStateNormal];
+        [self.albumBtn setTitle:@"相册" forState:UIControlStateNormal];
+        
+        [self jumpCustomImagePickerSourceType:UIImagePickerControllerSourceTypeCamera];
+        
+        return;
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
